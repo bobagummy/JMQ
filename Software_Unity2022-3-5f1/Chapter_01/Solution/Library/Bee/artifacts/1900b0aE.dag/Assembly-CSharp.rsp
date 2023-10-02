@@ -332,6 +332,7 @@
 "Assets/Scripts/MapSpawn.cs"
 "Assets/Scripts/RandomMap.cs"
 "Assets/Scripts/StateManager.cs"
+"Assets/Scripts/Throwable.cs"
 "Assets/Scripts/UserCollision.cs"
 "Assets/Scripts/UserMove.cs"
 -langversion:9.0
