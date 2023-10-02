@@ -9,6 +9,7 @@ public class Throwable : MonoBehaviour
     public float sensitivity;
     public float maxThrowDistance;
     private Vector3 initialMousePos;
+    public float objectLifetime = 5.0f; // Adjust this to set the lifetime of the object.
 
     void Start()
     {
@@ -48,7 +49,7 @@ public class Throwable : MonoBehaviour
     {
         _lr.positionCount = 2;
         _lr.SetPosition(0, transform.position);
-        _lr.SetPosition(1, transform.position + throwVector/5);
+        _lr.SetPosition(1, transform.position + throwVector / 5);
         _lr.enabled = true;
     }
 
@@ -83,6 +84,11 @@ public class Throwable : MonoBehaviour
         yield return new WaitForSeconds(throwDistance / 10f);
 
         _rb.velocity = Vector2.zero;
+
+        // Delay for objectLifetime seconds and then destroy the object.
+        yield return new WaitForSeconds(objectLifetime);
+        Destroy(gameObject);
+
     }
 
     private void OnTriggerEnter2D(Collider2D theCollider)
@@ -102,4 +108,5 @@ public class Throwable : MonoBehaviour
             }
         }
     }
+
 }

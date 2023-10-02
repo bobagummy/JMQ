@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Throwing : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform firePoint;
+    public GameObject throwablePrefab;
+    public Transform playerPos;
+
+    private void Start()
     {
-        
+        firePoint.position = playerPos.position;
+        SpawnThrowable();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        Debug.Log(firePoint.position);
+
+    }
+
+    public void SpawnThrowable()
+    {
+
+        GameObject throwableObj = Instantiate(throwablePrefab, firePoint.position, firePoint.rotation);
     }
 }
