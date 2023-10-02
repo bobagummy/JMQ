@@ -13,14 +13,15 @@ TagManager:
   - Canvas
   - Inventory
   - BgMap
+  - star
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - star
   - Water
   - UI
-  - 
+  - player
   - 
   - 
   - 

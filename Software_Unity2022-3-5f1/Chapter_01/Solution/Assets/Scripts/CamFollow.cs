@@ -42,6 +42,8 @@ public class CamFollow : MonoBehaviour {
 
         //retrieve bounds
         _bounds = FindBounds(boundsObj);
+        //Debug.Log(_bounds);
+
     }
 
     //update
