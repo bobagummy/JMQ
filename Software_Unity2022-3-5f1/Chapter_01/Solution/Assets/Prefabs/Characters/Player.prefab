@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6100000}
   - component: {fileID: 11400000}
   - component: {fileID: 11498364}
-  - component: {fileID: 6227666454187149420}
+  - component: {fileID: 2935424075659770710}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c9e572d38bd84488844088f37b3840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6227666454187149420
+--- !u!114 &2935424075659770710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,8 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5abd17a7dbc81548b671a73594cd0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
-  throwablePrefab: {fileID: 0}
+  firePoint: {fileID: 6728439038937072334}
+  throwablePrefab: {fileID: 199378, guid: 566e082833d76bb4da6c48f2da70cc5a, type: 3}
+  player: {fileID: 100000}
 --- !u!1 &4120853105503459787
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,9 +202,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4120853105503459787}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: -0.13, z: 0}
+  m_LocalScale: {x: 0.487722, y: 0.487722, z: 0.487722}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 0

@@ -9,7 +9,8 @@ public class Throwable : MonoBehaviour
     public float sensitivity;
     public float maxThrowDistance;
     private Vector3 initialMousePos;
-    public float objectLifetime = 5.0f; // Adjust this to set the lifetime of the object.
+    public float objectLifetime = 5.0f;
+    public float arrowEndPoint;
 
     void Start()
     {
@@ -35,13 +36,8 @@ public class Throwable : MonoBehaviour
         Vector3 currentMousePos = Input.mousePosition;
         Vector3 mouseDelta = currentMousePos - initialMousePos;
 
-        // Calculate the throw power based on the length of the line renderer.
         float throwPower = mouseDelta.magnitude * sensitivity;
-
-        // Limit the throw power to be within the max throw distance.
         throwPower = Mathf.Clamp(throwPower, 0.0f, maxThrowDistance);
-
-        // Calculate the throw direction.
         throwVector = -mouseDelta.normalized * throwPower;
     }
 
@@ -49,7 +45,7 @@ public class Throwable : MonoBehaviour
     {
         _lr.positionCount = 2;
         _lr.SetPosition(0, transform.position);
-        _lr.SetPosition(1, transform.position + throwVector / 5);
+        _lr.SetPosition(1, transform.position + throwVector / arrowEndPoint);
         _lr.enabled = true;
     }
 
@@ -85,10 +81,11 @@ public class Throwable : MonoBehaviour
 
         _rb.velocity = Vector2.zero;
 
-        // Delay for objectLifetime seconds and then destroy the object.
         yield return new WaitForSeconds(objectLifetime);
         Destroy(gameObject);
 
+        // Notify the Throwing script that the throw is completed.
+        FindObjectOfType<Throwing>().EndThrow();
     }
 
     private void OnTriggerEnter2D(Collider2D theCollider)
@@ -100,13 +97,14 @@ public class Throwable : MonoBehaviour
         {
             if (inventory.numObjects < inventory.maxObjects)
             {
-                // Add the collectable to the inventory.
                 inventory.AddItem();
-
-                // Destroy the collectable object.
                 Destroy(theCollider.gameObject);
             }
         }
-    }
 
+        if (tag == "Knight")
+        {
+            Destroy(theCollider.gameObject);
+        }
+    }
 }
