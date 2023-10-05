@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Throwing : MonoBehaviour
 {
-    public Transform firePoint;
     public GameObject throwablePrefab;
     private GameObject currentThrowable;
     public GameObject player;
@@ -17,7 +16,6 @@ public class Throwing : MonoBehaviour
     private void Update()
     {
         playerPos = player.transform;
-        firePoint.position = playerPos.position;
 
         if (throwablePrefab != null && canThrow)
         {
@@ -36,7 +34,7 @@ public class Throwing : MonoBehaviour
     public void SpawnThrowable()
     {
         Debug.Log("throwable spawned");
-        currentThrowable = Instantiate(throwablePrefab, firePoint.position, firePoint.rotation);
+        currentThrowable = Instantiate(throwablePrefab, player.transform);
 
         // Start the cooldown coroutine.
         StartCoroutine(ThrowCooldown());

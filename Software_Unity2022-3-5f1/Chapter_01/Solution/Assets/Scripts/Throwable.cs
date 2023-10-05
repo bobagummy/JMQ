@@ -70,6 +70,7 @@ public class Throwable : MonoBehaviour
             throwVector = throwVector.normalized * maxThrowDistance;
         }
 
+        transform.parent = null;
         _rb.AddForce(throwVector * 10);
 
         StartCoroutine(StopAtEndPoint(throwDistance));
