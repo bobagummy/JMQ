@@ -78,7 +78,7 @@ public class Throwable : MonoBehaviour
 
     IEnumerator StopAtEndPoint(float throwDistance)
     {
-        yield return new WaitForSeconds(throwDistance / 5f);
+        yield return new WaitForSeconds(throwDistance / 10f);
 
         _rb.velocity = Vector2.zero;
 
