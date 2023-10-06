@@ -71,14 +71,14 @@ public class Throwable : MonoBehaviour
         }
 
         transform.parent = null;
-        _rb.AddForce(throwVector * 10);
-
+        _rb.AddForce(throwVector * 20);
+        GetComponent<TrailRenderer>().emitting = true;
         StartCoroutine(StopAtEndPoint(throwDistance));
     }
 
     IEnumerator StopAtEndPoint(float throwDistance)
     {
-        yield return new WaitForSeconds(throwDistance / 10f);
+        yield return new WaitForSeconds(throwDistance / 5f);
 
         _rb.velocity = Vector2.zero;
 
